@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import (
     CreateView,
@@ -15,6 +16,10 @@ from .models import (
     Status,
 )
 
+def redirect_view(request):
+    response = redirect('/articles/a/a/')
+    return response
+
 class ArticleNavbarHelper:
     def __init__(self, context):
         self.set_section(context)
@@ -27,15 +32,6 @@ class ArticleNavbarHelper:
         context["statuses"] = Status.objects.all()
 
 class ArticleListView(ListView):
-    # template_name = "articles/list.html"
-    # model = Article
-
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context["article_draft_list"] = Article.objects.filter(status=Status.objects.get(id=1)).order_by('created_on').reverse()
-    #     context["current_datetime"] = datetime.now().strftime("%F %H:%M:%S")
-    #     return context
-
     template_name = "articles/list.html"
     model = Article
 
@@ -107,7 +103,7 @@ class ArticleCreateView(LoginRequiredMixin, CreateView):
     template_name = "articles/new.html"
     model = Article
     fields = ["section", "title", "subtitle", "body", "status"]
-    success_url = 'http://127.0.0.1:8000/articles/1/1'
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -117,7 +113,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = "articles/edit.html"
     model = Article
     fields = ["section", "title", "subtitle", "body", "status"]
-    success_url = 'http://127.0.0.1:8000/articles/1/1'
+    success_url = reverse_lazy('home')
 
     def test_func(self):
         article = self.get_object()
@@ -126,7 +122,7 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name = "articles/delete.html"
     model = Article
-    success_url = 'http://127.0.0.1:8000/articles/1/1'
+    success_url = reverse_lazy('home')
 
     def test_func(self):
         article = self.get_object()

@@ -7,9 +7,11 @@ from .views import (
     ArticleDeleteView,
     ArticleDraftListView,
     ArticleDraftDetailView,
+    redirect_view,
 )
 
 urlpatterns = [
+    path('articles/1/1/', redirect_view),
     path('<section>/<status>/', ArticleListView.as_view(), name='article_list'),
     path('<section>', ArticleListView.as_view(), name='article_list'),
     path('drafts/', ArticleDraftListView.as_view(), name='article_draft_list'),
