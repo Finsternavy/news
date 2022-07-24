@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock title %}
+
+{% block content %}
+<h1 class="title">{{ article.title }}</h1>
+<small class="small">Created on: {{ article.created_on }} | By: {{ article.author }}</small>
+<p class="body">{{ article.body }}</p>
+{% if user.is_authenticated %}
+<div class="crud">
+    <a class="crud-btns" href="{% url 'article_edit' article.id article.id %}">Edit</a>
+    <a class="crud-btns" href="{% url 'article_delete' article.id article.id %}">Delete</a>
+</div>
+{% endif %}
+<a class="crud-to-articles" href="{% url 'article_list' 1 1 %}">Return to Articles</a>
+{% endblock content %}

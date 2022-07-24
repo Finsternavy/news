@@ -1,0 +1,105 @@
+body{
+    background-color: rgb(20, 20, 20);
+    color: rgb(200, 200, 200);
+}
+.navbar{
+    background-color: rgb(30, 30, 30)!important;
+}
+.nav-link{
+    color: orangered;
+    text-transform: capitalize;
+}
+.navbar-brand{
+    color: rgb(200, 200, 200);
+}
+.container{
+    margin-block: 20px;
+}
+.navbar-toggler{
+    background-color: rgb(40, 40, 40);
+}
+.navbar-toggler:focus,
+.navbar_toggler:active{
+    border: none;
+    outline: none;
+}
+.navbar a:hover{
+    color: yellow;
+}
+.navbar a:focus{
+    color: orange;
+}
+.navbar .dropdown-menu,
+.navbar .dropdown-item{
+    background-color: rgb(30, 30, 30);
+    padding: none;
+    border: none;
+    color: orangered;
+}
+
+/* -------- Nav Card --------- */
+
+.card{
+    background-color: rgb(40, 40, 40);
+}
+.card a{
+    color: orange;
+}
+.card h5{
+    color: red;
+    margin-bottom: 10px;
+}
+.card .card-subtitle{
+    color: white!important;
+    margin-bottom: 20px!important;
+}
+.card .datetime{
+    color: rgb(100, 100, 100);
+    font-size: .8rem;
+}
+.card .card-text{
+    color: rgb(150, 150, 150);
+}
+
+#id_create_form  > * input,
+#id_create_form  > * select,
+#id_create_form  > * textarea{
+    width: 100%;
+    background-color: rgb(40, 40, 40);
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    padding-left: 20px;
+    color: rgb(150, 150, 150);
+}
+#id_create_form label{
+    padding-left: 10px;
+}
+.btn{
+    color: orangered;
+    border: 1px solid orangered;
+    width: 100%;
+}
+.btn:hover{
+    color: orange;
+    border-color: orange;
+}
+
+
+/* -------- detail view -------- */
+
+.title{
+    color: orangered;
+}
+.body{
+    margin-top: 20px!important;
+}
+.crud a{
+    color: orange;
+}
+.crud-to-articles{
+    color: orangered;
+}
+.crud-to-articles:hover{
+    color: orange;
+}
